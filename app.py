@@ -20,6 +20,9 @@ class Task(db.Model):
     title = db.Column(db.String(100), nullable=False)
     completed = db.Column(db.Boolean, default=False)
 
+with app.app_context():
+    db.create_all()
+
 @app.route('/')
 def home():
     return render_template('index.html')
